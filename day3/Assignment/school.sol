@@ -54,7 +54,7 @@ contract School{
 
     mapping(uint => uint) public studentLevel;
 
-   uint256 private constant SALARY = 5000e18;
+   uint256 private constant SALARY = 6000e18;
 
     address owner;
 
