@@ -15,7 +15,11 @@ contract Todo {
         todo_id = todo_id + 1;
         // Task memory task = Task(id, _title, false, 0);
         // task id = 1
-        Task memory task = Task({id: todo_id, title: _title, isComplete: false, timeCompleted: 0});
+        Task memory task = Task({
+        id: todo_id, 
+        title: _title, 
+        isComplete: false, 
+        timeCompleted: 0});
         tasks.push(task);
         // this helps us to increment the id for subsequent calls or tasks
         // that would be created.
@@ -30,6 +34,13 @@ contract Todo {
             if (tasks[i].id == _id) {
                 tasks[i].isComplete = true;
                 tasks[i].timeCompleted = block.timestamp;
+            }
+        }
+    }
+    function updateTask(uint8 _id, string memory _title) public {
+        for(uint8 i; i < tasks.length; i++) {
+            if (tasks[i].id == _id) {
+                tasks[i].title = _title;
             }
         }
     }
